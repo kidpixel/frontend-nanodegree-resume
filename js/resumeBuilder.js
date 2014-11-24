@@ -75,4 +75,22 @@ var incrementLastArrayElement = function(_array) {
 
 // Did your code work? The line below will tell you!
 console.log(incrementLastArrayElement(sampleArray));
+
+//------------------------ My uncommented code:
+var incrementLastArrayElement = function(_array) {
+    var newArray = [];
+    var popped = _array.pop()+1;
+    _array.push(popped);   // can't store this in newArray because it only returns the length of the array and not the resulting array itself.
+    newArray = _array;
+    return newArray;
+};
 //----------------------------------------------------------------------
+
+//  INSTRUCTORS'S CODE
+function incrementLastArrayElement(_array)  {
+    var newArray = [];
+    newArray = _array.slice(0);
+    var lastNumber = newArray.pop();
+    newArray.push(lastNumber + 1);
+    return newArray;
+}
