@@ -14,8 +14,8 @@
 //$("#main").append(funThoughts);
 
 
-var name = "Carlo M. Jonson"
-var role = "Web Developer"
+var name = "Huddle Dashboard"
+var role = "* TEST AREA"
 
 var formattedName = HTMLheaderName.replace("%data%", name);
 var formattedRole = HTMLheaderRole.replace("%data%", role);	
@@ -51,6 +51,7 @@ console.log(newArray[2]);  // correctly shows 8 now.
 console.log(sampleArray);  // correctly shows [0,0,8] now.
 */
 
+/*
 //-----------------------------------------------Final code that passed
 var sampleArray = [0,0,7];
 
@@ -94,3 +95,32 @@ function incrementLastArrayElement(_array)  {
     newArray.push(lastNumber + 1);
     return newArray;
 }
+*/
+
+/*
+var name = "AlbERt EINstEiN";
+
+function nameChanger(oldName) {
+    var finalName = oldName;
+    // Your code goes here!
+    finalName = finalName.split(" ");
+    finalName = finalName[0][0].toUpperCase() + finalName[0].slice(1).toLowerCase() + " " + finalName[1].toUpperCase();
+
+    // Don't delete this line!
+    return finalName;
+};
+
+// Did your code work? The line below will tell you!
+console.log(nameChanger(name));
+
+
+//-----------Instructor's code
+function nameChanger(oldName) {
+    var finalName = oldName;
+    var names = oldName.split(" ");
+    names[1] = names[1].toUpperCase();
+    names[0] = names[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
+    finalName = names.join(" ");
+    return finalName;
+}
+*/
