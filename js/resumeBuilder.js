@@ -14,11 +14,11 @@
 //$("#main").append(funThoughts);
 
 
-var name = "Huddle Dashboard"
-var role = "* TEST AREA"
+var myName = "Carlo M. Jonson"
+var myRole = "Sr. Mgr. Field Communications"
 
-var formattedName = HTMLheaderName.replace("%data%", name);
-var formattedRole = HTMLheaderRole.replace("%data%", role);	
+var formattedName = HTMLheaderName.replace("%data%", myName);
+var formattedRole = HTMLheaderRole.replace("%data%", myRole);	
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);	
@@ -98,7 +98,7 @@ function incrementLastArrayElement(_array)  {
 */
 
 /*
-var name = "AlbERt EINstEiN";
+var name = "ceCile busTamaNte";
 
 function nameChanger(oldName) {
     var finalName = oldName;
@@ -112,8 +112,8 @@ function nameChanger(oldName) {
 
 // Did your code work? The line below will tell you!
 console.log(nameChanger(name));
-
-
+*/
+/*
 //-----------Instructor's code
 function nameChanger(oldName) {
     var finalName = oldName;
@@ -124,3 +124,31 @@ function nameChanger(oldName) {
     return finalName;
 }
 */
+var mySkills = [
+
+    "cooking",
+    "coding", 
+    "collaboratig",
+    "colluding",
+    "conspiring",
+    "conflagarating"
+
+];
+
+var bio = {
+
+    "name" : myName,
+    "role" : myRole,
+    "number" : "443.333.4444",
+    "picture" : "http://www.clker.com/cliparts/K/M/W/1/8/u/ninja-hi.png",
+    "welcomeMessage" : "Wherever you go, there you are.",
+    "skills" : mySkills
+
+};
+
+$("#main").append(bio.name);
+$("#main").append(bio.role);
+$("#main").append(bio.number);
+$("#main").append(bio.picture);
+$("#main").append(bio.welcomeMessage);
+$("#main").append(bio.skills);
