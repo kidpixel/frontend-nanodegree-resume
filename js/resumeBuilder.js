@@ -146,9 +146,25 @@ var bio = {
 
 };
 
+var work = {};
+    work.position = myRole;
+    work.employer = "Cricket Wireless / AT&T";
+    work.tenure = "5 years";
+    work.city = "Atlanta, GA";
+
+
+var education = {};
+    education["name"] = "University of Toronto";
+    education["years"] = "3";
+    education["city"] = "Scarborough, ON";
+
+
 $("#main").append(bio.name);
 $("#main").append(bio.role);
 $("#main").append(bio.number);
 $("#main").append(bio.picture);
 $("#main").append(bio.welcomeMessage);
 $("#main").append(bio.skills);
+
+$("#main").append(work["position"]);
+$("#main").append(education.name);
