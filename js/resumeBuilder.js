@@ -3,17 +3,7 @@
 //var awesomeThoughts = "I am CJ, and I am AWESOME!"
 ///console.log(awesomeThoughts);
 
-//var email = "cameron@udacity.com";
-//var newEmail = email.replace("udacity", "gmail"); 
-
-//console.log(email);
-//console.log(newEmail);
-
-//var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
-
-//$("#main").append(funThoughts);
-
-
+/*
 var myName = "Carlo M. Jonson"
 var myRole = "Sr. Mgr. Field Communications"
 
@@ -22,149 +12,133 @@ var formattedRole = HTMLheaderRole.replace("%data%", myRole);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);	
-
-
-/*
-var audacious = "audacity"
-var udacious = ("U" + audacious.slice(2));
-console.log(udacious);
-
-$("#main").append(udacious);
 */
 
-// My first way of approaching the last element... this modifieds the specific last element "2", not necessarily the "last"
-/*
-var sampleArray = [0,0,7];
-sampleArray[2] = sampleArray[2] + 1;
-var newArray = sampleArray;
-console.log(newArray[2]);
-*/
-
-// My second attempt per the push/pop methods
-/*
-var sampleArray = [0,0,7];
-var popped = sampleArray.pop()+1;
-sampleArray.push(popped);   // can't store this in newArray because it only returns the length of the array and not the resulting array itself.
-var newArray = sampleArray;
-console.log(popped);
-console.log(newArray[2]);  // correctly shows 8 now.
-console.log(sampleArray);  // correctly shows [0,0,8] now.
-*/
-
-/*
-//-----------------------------------------------Final code that passed
-var sampleArray = [0,0,7];
-
-var incrementLastArrayElement = function(_array) {
-    var newArray = [];
-    // Your code should make newArray equal to an array that has the same
-    // values as _array, but the last number has increased by one.
-    
-    // For example:
-    // _array = [1, 2, 3];
-    // turn into:
-    // newArray = [1, 2, 4];
-    
-    // Your code goes in here!
-    var popped = _array.pop()+1;
-    _array.push(popped);   // can't store this in newArray because it only returns the length of the array and not the resulting array itself.
-    newArray = _array;
-    
-    // Don't delete this line!
-    return newArray;
-};
-
-// Did your code work? The line below will tell you!
-console.log(incrementLastArrayElement(sampleArray));
-
-//------------------------ My uncommented code:
-var incrementLastArrayElement = function(_array) {
-    var newArray = [];
-    var popped = _array.pop()+1;
-    _array.push(popped);   // can't store this in newArray because it only returns the length of the array and not the resulting array itself.
-    newArray = _array;
-    return newArray;
-};
-//----------------------------------------------------------------------
-
-//  INSTRUCTORS'S CODE
-function incrementLastArrayElement(_array)  {
-    var newArray = [];
-    newArray = _array.slice(0);
-    var lastNumber = newArray.pop();
-    newArray.push(lastNumber + 1);
-    return newArray;
-}
-*/
-
-/*
-var name = "ceCile busTamaNte";
-
-function nameChanger(oldName) {
-    var finalName = oldName;
-    // Your code goes here!
-    finalName = finalName.split(" ");
-    finalName = finalName[0][0].toUpperCase() + finalName[0].slice(1).toLowerCase() + " " + finalName[1].toUpperCase();
-
-    // Don't delete this line!
-    return finalName;
-};
-
-// Did your code work? The line below will tell you!
-console.log(nameChanger(name));
-*/
-/*
-//-----------Instructor's code
-function nameChanger(oldName) {
-    var finalName = oldName;
-    var names = oldName.split(" ");
-    names[1] = names[1].toUpperCase();
-    names[0] = names[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
-    finalName = names.join(" ");
-    return finalName;
-}
-*/
-var mySkills = [
-
-    "cooking",
-    "coding", 
-    "collaboratig",
-    "colluding",
-    "conspiring",
-    "conflagarating"
-
-];
+//----Objects, etc...
 
 var bio = {
-
-    "name" : myName,
-    "role" : myRole,
-    "number" : "443.333.4444",
-    "picture" : "http://www.clker.com/cliparts/K/M/W/1/8/u/ninja-hi.png",
-    "welcomeMessage" : "Wherever you go, there you are.",
-    "skills" : mySkills
-
+    "name": myName,
+    "role": myRole,
+    "number": "443.333.4444",
+    "picture": "http://www.clker.com/cliparts/K/M/W/1/8/u/ninja-hi.png",
+    "welcomeMessage": "Wherever you go, there you are.",
+    "skills": [
+        "cooking",
+        "coding", 
+        "collaboratig",
+        "colluding",
+        "conspiring",
+        "conflagarating",
+        "CHAFFING"
+    ],
+    "contacts": {
+        "mobile": "443.123.4567",
+        "email": "cj811k@att.com",
+        "github": "kidpixel",
+        "location": "Atlanta, GA"
+    }
 };
 
-var work = {};
-    work.position = myRole;
-    work.employer = "Cricket Wireless / AT&T";
-    work.tenure = "5 years";
-    work.city = "Atlanta, GA";
+var projects = {
+    "projects": [
+        {
+            "title": "Udacity Mug Mockup to Website",
+            "dates": "November 2014",
+            "description": "Constructing a pixel-perfect HTML/CSS site from scratch guided by just a mockup image.",
+            "images": [
+                "http://",
+                "http://",
+                "http://"
+            ]
+        },
+        {
+            "title": "Interactive Resume",
+            "dates": "December 2014",
+            "description": "Interactive Resume dynamically created using JavaScript.",
+            "images": [
+                "http://",
+                "http://",
+                "http://"
+            ]
+        }
+    ] // projects array
+}; // projects object
 
+var work = {
+    "jobs": [
+        {
+            "employer": "Cricket Wireless / AT&T",
+            "title": "Senior Manager, Field Communications",
+            "location": "Atlanta, GA",
+            "dates": "2014-current",
+            "description": "Graphic Design, Desktop Publishing, and 'Frontline' Document Creation"
+        },
+        {
+            "employer": "Cricket Communications",
+            "title": "Indirect Account Manager (IAM)",
+            "location": "Baltimore-Washington Market (BAWA South - Washington D.C.)",
+            "dates": "2010-2014",
+            "description": "Dealer Relationship and Business Development, Incremental Growth Strategy, Training, Development of ISR Direct-Reports"
+        },
+        {
+            "employer": "Cricket Communications",
+            "title": "Indirect Support Specialist (ISS) / Indirect Sales Representative (ISR)",
+            "location": "Baltimore-Washington Market (BAWA North - Baltimore)",
+            "dates": "2009-2010",
+            "description": "Relationship-Building, Frontline Rep Training, Ensuring Sales Execution, Merchandising Assistance"
+        },
+        {
+            "employer": "Asurion",
+            "title": "Regional Account Manager (RAM)",
+            "location": "Baltimore-Washington (BAWA), VA Beach, Richmond",
+            "dates": "2009",
+            "description": "Insurance Product Support & Relationship-Building"
+        },
+        {
+            "employer": "Circuit City",
+            "title": "Technology Manager",
+            "location": "Glen Burnie, MD",
+            "dates": "2008-2009"
+            "description": "Technology Team Management, Sales"
+        }
+    ] // jobs array
+}; // work object
 
-var education = {};
-    education["name"] = "University of Toronto";
-    education["years"] = "3";
-    education["city"] = "Scarborough, ON";
+var education = {
+    "onlineCourses": [
+        {
+            "title": "Front-End Web Development Nanodegree",
+            "school": "Udacity",            
+            "dates": "2014-2015",
+            "url": "https://www.udacity.com/course/nd001"
+        }
+    ],
+    "schools": [
+        {
+            "name": "Computer Learning Center (CLC)",
+            "location": "Laurel, MD",
+            "degree": [
+                "Computer Programming", 
+                "Database Management"
+            ]
+            "majors": [
+                "Computer Programming",
+                "Database Management"
+            ],
+            "dates": 2001,
+            "url": "http://www.udacity.com"
+        },
+        {
+            "name": "University of Toronto",
+            "location": "Scarborough, ON",
+            "degree": "",
+            "majors": [
+                "Biology",
+                "Computer Science"
+            ],
+            "dates": 1999,
+            "url": "http://www.utsc.utoronto.ca/"
+        }
+    ]
+};
 
-
-$("#main").append(bio.name);
-$("#main").append(bio.role);
-$("#main").append(bio.number);
-$("#main").append(bio.picture);
-$("#main").append(bio.welcomeMessage);
-$("#main").append(bio.skills);
-
-$("#main").append(work["position"]);
-$("#main").append(education.name);
