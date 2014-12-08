@@ -1,5 +1,5 @@
 var bio = {
-    "name": "Carlo M. Jonson",
+    "name": "Carlo Jonson",
     "role": "Sr. Mgr. Field Communications",
     "number": "443.333.4444",
     "picture": "http://www.clker.com/cliparts/K/M/W/1/8/u/ninja-hi.png",
@@ -21,44 +21,6 @@ var bio = {
     }
 };
 
-//old stuff... i'm keeping 'coz i don't want to see an empty page
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);   
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);    
-//old stuff... 
-
-
-if (bio.length !=0) {
-    $("#header").append(HTMLskillsStart);
-
-    // trying this loop to iterate through the skills
-    for (var skillIndex = 0; skillIndex < bio.skills.length; skillIndex++) {
-
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[skillIndex]);
-        $("#skills").append(formattedSkill);
-
-    };
-
-/*
-    // So I know this works... lemme try a loop, above... 
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-        $("#skills").append(formattedSkill);    
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[6]);
-        $("#skills").append(formattedSkill);
-*/
-};
 
 var projects = {
     "projects": [
@@ -125,31 +87,6 @@ var work = {
     ]
 }; 
 
-function displayWork(){
-
-    for (job in work.jobs) {
-
-        $("#workExperience").append(HTMLworkStart);
-
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-        var formattedEmployerTitle = formattedEmployer + formattedTitle;
-        //date
-        var formattedDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-        //location
-        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-        //description
-        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-        //continue appending
-        $(".work-entry:last").append(formattedEmployerTitle);
-        $(".work-entry:last").append(formattedDate);
-        $(".work-entry:last").append(formattedLocation);
-        $(".work-entry:last").append(formattedDescription);
-    };
-};
-displayWork();
-
-
 var education = {
     "onlineCourses": [
         {
@@ -188,33 +125,45 @@ var education = {
     ]
 };
 
-// My first attempt - returns correct Array, but isn't what they're looking for.
-/*
-function locationizer(work_obj) {
-    var locationsArray = [];
-    for (var job in work.jobs){
-        locationsArray[job] = work.jobs[job].location;
-    }
-	console.log(locationsArray);
-    return locationsArray;
-}
-locationizer(work);
-*/
 
-// My second attempt - seems to return the correct array... still not what theyr'e looking for.
-/*
-function locationizer(work_obj) {
-    var locationsArray = [];
-    for (var job in work.jobs){
-        locationsArray.push(work.jobs[job].location);
-    }
-	console.log(locationsArray);
-    return locationsArray;
-}
-locationizer(work);
-*/
 
-// What "worked" === What Udacity was looking for... 
+if (bio.length !=0) {
+    $("#header").append(HTMLskillsStart);
+
+    // trying this loop to iterate through the skills
+    for (var skillIndex = 0; skillIndex < bio.skills.length; skillIndex++) {
+
+        var formattedSkill = HTMLskills.replace("%data%", bio.skills[skillIndex]);
+        $("#skills").append(formattedSkill);
+    };
+};
+
+
+function displayWork(){
+
+    for (job in work.jobs) {
+
+        $("#workExperience").append(HTMLworkStart);
+
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
+        //date
+        var formattedDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        //location
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        //description
+        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        //continue appending
+        $(".work-entry:last").append(formattedEmployerTitle);
+        $(".work-entry:last").append(formattedDate);
+        $(".work-entry:last").append(formattedLocation);
+        $(".work-entry:last").append(formattedDescription);
+    };
+};
+displayWork();
+
+
 function locationizer(work_obj) {
     var locationsArray = [];
     for (var job in work_obj.jobs){
@@ -225,3 +174,38 @@ function locationizer(work_obj) {
 }
 locationizer(work);
 
+
+//old stuff... i'm keeping 'coz i don't want to see an empty page
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);   
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);    
+//old stuff end. 
+
+
+var inName = function(name) {
+    name = name.trim().split(" ");
+    // my implementation from Lesson 1 modified since the helper function in helper.js was changed to accept a param.  I like this line!
+    name = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase() + " " + name[1].toUpperCase();
+    return name;
+
+/*  My Code that WORKS... but since the helper.js code was change on Nov 30 for inName to take a param, doing newer code above...
+    passedName = bio.name;
+    var finalName = passedName;
+    finalName = passedName.split(" ");
+    // my implementation from Lesson 1... 
+    finalName = finalName[0][0].toUpperCase() + finalName[0].slice(1).toLowerCase() + " " + finalName[1].toUpperCase();
+    return finalName;
+*/
+/*  The modified Udacity/instructor version for reference.
+    firstLast = passedName.trim().split(" ");
+    console.log(firstLast);
+    firstLast[1] = firstLast[1].toUpperCase();
+    console.log(firstLast[1]);
+    firstLast[0] = firstLast[0].slice(0,1).toUpperCase() + firstLast[0].slice(1).toLowercase();
+
+    return name[0] +" "+ name[1];
+*/
+};
+$("#main").append(internationalizeButton);

@@ -1,7 +1,3 @@
-//$("#main").append("Carlo M. Jonson");
-
-//var awesomeThoughts = "I am CJ, and I am AWESOME!"
-///console.log(awesomeThoughts);
 
 // "old code snippets from lessons wiped... newer ones here from Lesson 2"
 /*
