@@ -27,6 +27,8 @@ var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);    
+//old stuff... 
+
 
 if (bio.length !=0) {
     $("#header").append(HTMLskillsStart);
@@ -123,6 +125,31 @@ var work = {
     ]
 }; 
 
+function displayWork(){
+
+    for (job in work.jobs) {
+
+        $("#workExperience").append(HTMLworkStart);
+
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
+        //date
+        var formattedDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        //location
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        //description
+        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        //continue appending
+        $(".work-entry:last").append(formattedEmployerTitle);
+        $(".work-entry:last").append(formattedDate);
+        $(".work-entry:last").append(formattedLocation);
+        $(".work-entry:last").append(formattedDescription);
+    };
+};
+displayWork();
+
+
 var education = {
     "onlineCourses": [
         {
@@ -161,4 +188,40 @@ var education = {
     ]
 };
 
+// My first attempt - returns correct Array, but isn't what they're looking for.
+/*
+function locationizer(work_obj) {
+    var locationsArray = [];
+    for (var job in work.jobs){
+        locationsArray[job] = work.jobs[job].location;
+    }
+	console.log(locationsArray);
+    return locationsArray;
+}
+locationizer(work);
+*/
+
+// My second attempt - seems to return the correct array... still not what theyr'e looking for.
+/*
+function locationizer(work_obj) {
+    var locationsArray = [];
+    for (var job in work.jobs){
+        locationsArray.push(work.jobs[job].location);
+    }
+	console.log(locationsArray);
+    return locationsArray;
+}
+locationizer(work);
+*/
+
+// What "worked" === What Udacity was looking for... 
+function locationizer(work_obj) {
+    var locationsArray = [];
+    for (var job in work_obj.jobs){
+        locationsArray.push(work_obj.jobs[job].location);
+    }
+	console.log(locationsArray);
+    return locationsArray;
+}
+locationizer(work);
 
