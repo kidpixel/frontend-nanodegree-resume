@@ -1,35 +1,17 @@
-//$("#main").append("Carlo M. Jonson");
-
-//var awesomeThoughts = "I am CJ, and I am AWESOME!"
-///console.log(awesomeThoughts);
-
-/*
-var myName = "Carlo M. Jonson"
-var myRole = "Sr. Mgr. Field Communications"
-
-var formattedName = HTMLheaderName.replace("%data%", myName);
-var formattedRole = HTMLheaderRole.replace("%data%", myRole);	
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);	
-*/
-
-//----Objects, etc...
-
 var bio = {
-    "name": myName,
-    "role": myRole,
+    "name": "Carlo M. Jonson",
+    "role": "Sr. Mgr. Field Communications",
     "number": "443.333.4444",
     "picture": "http://www.clker.com/cliparts/K/M/W/1/8/u/ninja-hi.png",
     "welcomeMessage": "Wherever you go, there you are.",
     "skills": [
-        "cooking",
-        "coding", 
-        "collaboratig",
+        "Cooking",
+        "Coding", 
+        "Collaboratig",
         "colluding",
         "conspiring",
         "conflagarating",
-        "CHAFFING"
+        "Kidding..."
     ],
     "contacts": {
         "mobile": "443.123.4567",
@@ -37,6 +19,43 @@ var bio = {
         "github": "kidpixel",
         "location": "Atlanta, GA"
     }
+};
+
+//old stuff... i'm keeping 'coz i don't want to see an empty page
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);   
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);    
+
+if (bio.length !=0) {
+    $("#header").append(HTMLskillsStart);
+
+    // trying this loop to iterate through the skills
+    for (var skillIndex = 0; skillIndex < bio.skills.length; skillIndex++) {
+
+        var formattedSkill = HTMLskills.replace("%data%", bio.skills[skillIndex]);
+        $("#skills").append(formattedSkill);
+
+    };
+
+/*
+    // So I know this works... lemme try a loop, above... 
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+        $("#skills").append(formattedSkill);
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+        $("#skills").append(formattedSkill);
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+        $("#skills").append(formattedSkill);    
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+        $("#skills").append(formattedSkill);
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+        $("#skills").append(formattedSkill);
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
+        $("#skills").append(formattedSkill);
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[6]);
+        $("#skills").append(formattedSkill);
+*/
 };
 
 var projects = {
@@ -61,8 +80,8 @@ var projects = {
                 "http://"
             ]
         }
-    ] // projects array
-}; // projects object
+    ] 
+}; 
 
 var work = {
     "jobs": [
@@ -98,11 +117,11 @@ var work = {
             "employer": "Circuit City",
             "title": "Technology Manager",
             "location": "Glen Burnie, MD",
-            "dates": "2008-2009"
+            "dates": "2008-2009",
             "description": "Technology Team Management, Sales"
         }
-    ] // jobs array
-}; // work object
+    ]
+}; 
 
 var education = {
     "onlineCourses": [
@@ -120,7 +139,7 @@ var education = {
             "degree": [
                 "Computer Programming", 
                 "Database Management"
-            ]
+            ],
             "majors": [
                 "Computer Programming",
                 "Database Management"
@@ -141,4 +160,5 @@ var education = {
         }
     ]
 };
+
 
