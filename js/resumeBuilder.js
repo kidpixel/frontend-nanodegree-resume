@@ -29,9 +29,9 @@ var projects = {
             "dates": "November 2014",
             "description": "Constructing a pixel-perfect HTML/CSS site from scratch guided by just a mockup image.",
             "images": [
-                "http://",
-                "http://",
-                "http://"
+                "http://placehold.it/100x50",
+                "http://placehold.it/100x50",
+                "http://placehold.it/100x50"
             ]
         },
         {
@@ -39,9 +39,9 @@ var projects = {
             "dates": "December 2014",
             "description": "Interactive Resume dynamically created using JavaScript.",
             "images": [
-                "http://",
-                "http://",
-                "http://"
+                "http://placehold.it/100x50",
+                "http://placehold.it/100x50",
+                "http://placehold.it/100x50"
             ]
         }
     ] 
@@ -185,232 +185,39 @@ $("#header").prepend(formattedName);
 
 
 var inName = function(name) {
-    name = name.trim().split(" ");
+    name = name.trim().split(" ");  // I didn't think of or even know about trim() until the class example.  Inserting it here.
     // my implementation from Lesson 1 modified since the helper function in helper.js was changed to accept a param.  I like this line!
     name = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase() + " " + name[1].toUpperCase();
     return name;
-
-/*  My Code that WORKS... but since the helper.js code was change on Nov 30 for inName to take a param, doing newer code above...
-    passedName = bio.name;
-    var finalName = passedName;
-    finalName = passedName.split(" ");
-    // my implementation from Lesson 1... 
-    finalName = finalName[0][0].toUpperCase() + finalName[0].slice(1).toLowerCase() + " " + finalName[1].toUpperCase();
-    return finalName;
-*/
-/*  The modified Udacity/instructor version for reference.
-    firstLast = passedName.trim().split(" ");
-    console.log(firstLast);
-    firstLast[1] = firstLast[1].toUpperCase();
-    console.log(firstLast[1]);
-    firstLast[0] = firstLast[0].slice(0,1).toUpperCase() + firstLast[0].slice(1).toLowercase();
-
-    return name[0] +" "+ name[1];
-*/
 };
 $("#main").append(internationalizeButton);
 
 
-/* Mike's Challenge
-areLettersInOrder('uay', 'udacity'); // true
-areLettersInOrder('uyt', 'udacity'); // false
-areLettersInOrder('uta', 'google'); // false
-areLettersInOrder('gog', 'google'); // true
+projects.display = function() {
 
-the logic must be
-- compare the index place starting at the "first" position for both 'letters' and 'word'
-- if there's a match, you have a letter contained AND you have a letter in order
-    - so maybe increment each of those collector variables?
-        - letter contained is +1
-        - letter in order is +1
-    - increment the index of WORD regardless
-    - increment the index of LETTER (letterIndex?) to follow because there was a character match
-- if there's NOT a match, you to NOT have a letter contained (no match), and you to NOT have a letter in order (unsure about this second one's logic)
-    - letter contained does NOT increment
-    - letter in order does NOT increment
-    - increment the index of WORD regardless
-    - do NOT increment index of LETTER because there was no match
-        - since the indexes are linked... maybe we need a second variable for letter index? 
-        - (letterIndex?) gets no increment.
+    for (project in projects.projects) {
+    
+    $("#projects").append(HTMLprojectStart);
 
-"UAY"
-0 0 C I
-u u 1 1 - match.  
-1 1
-a d     - no match.
-1 2
-a a 1 1 - match.
-2 3
-y c     - no match.
-2 4 
-y i     - no match.
-2 5
-y t     - no match. 
-2 6
-y y 1 1 - match.
+        var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+        console.log(formattedProjectTitle);
+        console.log(projects.projects[project].title);
+        var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+        console.log(projects.projects[project].dates);
+        var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+        console.log(projects.projects[project].description);
 
-- iterate through WORD index regardless with above logic... then ONLY if "C" and "I" are equal in number... you have satisfied both requirements.
-- let's try a couple in ascii... i'll copy and paste next example... i'm thinking i don't need two separate variables here... just a test after it's all done.. let's see.
-- ADDED: C/I === letters.length... if this is the case then i think we have a winner, but let's see... 
+        $(".project-entry:last").append(formattedProjectTitle);
+        $(".project-entry:last").append(formattedProjectDates);
+        $(".project-entry:last").append(formattedProjectDescription);
 
-"UYT" 
-0 0 C I
-u u 1 1 - match.  
-1 1
-y d     - no match.
-1 2
-y a     - no match.
-2 3
-y c     - no match.
-2 4 
-y i     - no match.
-2 5
-y t     - no match. 
-2 6
-y y 1 1 - match.
+        // console.log(projects.projects[project].images[0]);  // testing path for a single image.
+        for (image in projects.projects[project].images) {
 
-- OK, so additional logic needs to be implemented... i'm right... the C might always equal the I, but let's see...
-- IF C/I (let's just call it the "collector" for now does NOT equal to letters.length, then you didn't satisfy both requirements.
-
-- Also there might need to be some additional checks at the beginning to see if letters is the same or bigger than word.
-    - if letters.length is the same as word.length, run a test to see if they are === 
-        - give user a smartass comment as output  ;) 
-    - if letters.length is greater than word.length, then 
-        - output appropriate error message and exit without running code
-    - if letters.length is less than word.length, then
-        - Execute the code, darnit!
-
-if (small > big) {
-    yell at the user
-    BREAK
-} else if (small === big) {
-    call the user a smartass
-    BREAK
-} else {
-    Do stuff.
-}
-
-Ok, let's write this:
-
-*/
-
-// FULLY COMMENTED with all my thought processes.
-
-function areLettersInOrder(small,big) {
-
-    var letters = small;
-    console.log(letters);
-    console.log(letters.length);
-    var word = big;
-    console.log(word);
-    console.log(word.length);
-
-    //var lettersContained = 0;
-    //var lettersInOrder = 0; 
-    var collector = 0;
-    var letterIndex = 0;
-
-    if (letters.length > word.length) {
-        console.log("Your small letter string is bigger than your word string.  They have meds for that.");
-        return false; 
-
-    } else if (letters.length === word.length) {
-        if (letters === word) {
-            console.log("Smartass.")
-            return false;
-        };
-
-    } else {
-
-        for (var charIndex = 0; charIndex < word.length; charIndex++){
-            console.log(charIndex + " inLoop charIndex");
-            console.log(letters[letterIndex] + " inLoop letter index");
-            console.log(word[charIndex] + " inLoop word index");
-
-            if (letters[letterIndex] === word[charIndex]) {
-                collector++;
-                console.log(collector + " inLoop inIF collector value");
-                letterIndex++;
-                console.log(letterIndex + " inLoop inIF letter index");
-            } else {
-                // Really, nothing to do here I guess, now that I look at it!
-            };
-        };  
-        // next run the test
-        console.log("---------------------")
-        console.log(collector + " is the FINAL Collector Value");
-        console.log(letters.length + " is the Letters (small value) Length");
-        if (collector == letters.length) {
-            console.log("TRUE... Good. Both conditions met... I think my logic is sound.")
-            return true; 
-        } else {
-            console.log("FALSE... Sorry. Both conditions not met... I still think my logic is sound.")
-            return false; 
+            var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+            console.log(projects.projects[project].images[image]);
+            $(".project-entry:last").append(formattedProjectImage);
         };
     };
 };
-areLettersInOrder("day","udacity"); 
-
-
-// Slim version... 
-/*
-function areLettersInOrder(small,big) {
-
-    var letters = small;
-    var word = big;
-    var collector = 0;
-    var letterIndex = 0;
-
-    if (letters.length > word.length) {
-        console.log("Your small letter string is bigger than your word string.  They have meds for that.");
-        return false; 
-
-    } else if (letters.length === word.length) {
-        if (letters === word) {
-            console.log("Smartass.")
-            return false;
-        };
-    } else {
-        for (var charIndex = 0; charIndex < word.length; charIndex++){
-            if (letters[letterIndex] === word[charIndex]) {
-                collector++;
-                letterIndex++;
-            } 
-        };  
-        // next run the test
-        console.log("Small string: " + letters + "   Word string: " + word);
-        console.log("---------------------")
-        console.log(collector + " is the final \"collector\" value.");
-        console.log(letters.length + " is the small string length.");
-        if (collector == letters.length) {
-            console.log("TRUE... Good. Both conditions met!")
-            return true; 
-        } else {
-            console.log("FALSE... Sorry. Both conditions NOT met.")
-            return false; 
-        };
-    };
-};
-*/
-areLettersInOrder("day","udacity"); 
-
-//Mikes Awesome Solution
-/*
-function areLettersInOrder(small, big) {
-  var smallArr = small.split(''),
-        bigArr = big.split('');
-
-    // Iterate through all characters of big
-    bigArr.forEach(function(char) {
-      // If the current character is the first char in small, shift it off
-      if (char === smallArr[0]) {
-        smallArr.shift();
-      }
-    }
-    // If the length of small is 0, we know things were correctly in order
-    if (smallArr.length === 0) {
-      return true;
-    }
-    return false;
-}
-*/
+projects.display();
