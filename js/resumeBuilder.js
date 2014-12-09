@@ -209,3 +209,185 @@ var inName = function(name) {
 */
 };
 $("#main").append(internationalizeButton);
+
+
+/* Mike's Challenge
+areLettersInOrder('uay', 'udacity'); // true
+areLettersInOrder('uyt', 'udacity'); // false
+areLettersInOrder('uta', 'google'); // false
+areLettersInOrder('gog', 'google'); // true
+
+the logic must be
+- compare the index place starting at the "first" position for both 'letters' and 'word'
+- if there's a match, you have a letter contained AND you have a letter in order
+    - so maybe increment each of those collector variables?
+        - letter contained is +1
+        - letter in order is +1
+    - increment the index of WORD regardless
+    - increment the index of LETTER (letterIndex?) to follow because there was a character match
+- if there's NOT a match, you to NOT have a letter contained (no match), and you to NOT have a letter in order (unsure about this second one's logic)
+    - letter contained does NOT increment
+    - letter in order does NOT increment
+    - increment the index of WORD regardless
+    - do NOT increment index of LETTER because there was no match
+        - since the indexes are linked... maybe we need a second variable for letter index? 
+        - (letterIndex?) gets no increment.
+
+"UAY"
+0 0 C I
+u u 1 1 - match.  
+1 1
+a d     - no match.
+1 2
+a a 1 1 - match.
+2 3
+y c     - no match.
+2 4 
+y i     - no match.
+2 5
+y t     - no match. 
+2 6
+y y 1 1 - match.
+
+- iterate through WORD index regardless with above logic... then ONLY if "C" and "I" are equal in number... you have satisfied both requirements.
+- let's try a couple in ascii... i'll copy and paste next example... i'm thinking i don't need two separate variables here... just a test after it's all done.. let's see.
+- ADDED: C/I === letters.length... if this is the case then i think we have a winner, but let's see... 
+
+"UYT" 
+0 0 C I
+u u 1 1 - match.  
+1 1
+y d     - no match.
+1 2
+y a     - no match.
+2 3
+y c     - no match.
+2 4 
+y i     - no match.
+2 5
+y t     - no match. 
+2 6
+y y 1 1 - match.
+
+- OK, so additional logic needs to be implemented... i'm right... the C might always equal the I, but let's see...
+- IF C/I (let's just call it the "collector" for now does NOT equal to letters.length, then you didn't satisfy both requirements.
+
+- Also there might need to be some additional checks at the beginning to see if letters is the same or bigger than word.
+    - if letters.length is the same as word.length, run a test to see if they are === 
+        - give user a smartass comment as output  ;) 
+    - if letters.length is greater than word.length, then 
+        - output appropriate error message and exit without running code
+    - if letters.length is less than word.length, then
+        - Execute the code, darnit!
+
+if (small > big) {
+    yell at the user
+    BREAK
+} else if (small === big) {
+    call the user a smartass
+    BREAK
+} else {
+    Do stuff.
+}
+
+Ok, let's write this:
+
+*/
+
+// FULLY COMMENTED with all my thought processes.
+/*
+function areLettersInOrder(small,big) {
+
+    var letters = small;
+    console.log(letters);
+    console.log(letters.length);
+    var word = big;
+    console.log(word);
+    console.log(word.length);
+
+    //var lettersContained = 0;
+    //var lettersInOrder = 0; 
+    var collector = 0;
+    var letterIndex = 0;
+
+    if (letters.length > word.length) {
+        console.log("Your small letter string is bigger than your word string.  They have meds for that.");
+        return false; 
+
+    } else if (letters.length === word.length) {
+        if (letters === word) {
+            console.log("Smartass.")
+            return false;
+        };
+
+    } else {
+
+        for (var charIndex = 0; charIndex < word.length; charIndex++){
+            console.log(charIndex + " inLoop charIndex");
+            console.log(letters[letterIndex] + " inLoop letter index");
+            console.log(word[charIndex] + " inLoop word index");
+
+            if (letters[letterIndex] === word[charIndex]) {
+                collector++;
+                console.log(collector + " inLoop inIF collector value");
+                letterIndex++;
+                console.log(letterIndex + " inLoop inIF letter index");
+            } else {
+                // Really, nothing to do here I guess, now that I look at it!
+            };
+        };  
+        // next run the test
+        console.log("---------------------")
+        console.log(collector + " is the FINAL Collector Value");
+        console.log(letters.length + " is the Letters (small value) Length");
+        if (collector == letters.length) {
+            console.log("TRUE... Good. Both conditions met... I think my logic is sound.")
+            return true; 
+        } else {
+            console.log("FALSE... Sorry. Both conditions not met... I still think my logic is sound.")
+            return false; 
+        };
+    };
+};
+*/
+
+
+// Slim version... 
+function areLettersInOrder(small,big) {
+
+    var letters = small;
+    var word = big;
+    var collector = 0;
+    var letterIndex = 0;
+
+    if (letters.length > word.length) {
+        console.log("Your small letter string is bigger than your word string.  They have meds for that.");
+        return false; 
+
+    } else if (letters.length === word.length) {
+        if (letters === word) {
+            console.log("Smartass.")
+            return false;
+        };
+    } else {
+        for (var charIndex = 0; charIndex < word.length; charIndex++){
+            if (letters[letterIndex] === word[charIndex]) {
+                collector++;
+                letterIndex++;
+            } 
+        };  
+        // next run the test
+        console.log("Small string: " + letters + "   Word string: " + word);
+        console.log("---------------------")
+        console.log(collector + " is the final \"collector\" value.");
+        console.log(letters.length + " is the small string length.");
+        if (collector == letters.length) {
+            console.log("TRUE... Good. Both conditions met!")
+            return true; 
+        } else {
+            console.log("FALSE... Sorry. Both conditions NOT met.")
+            return false; 
+        };
+    };
+};
+areLettersInOrder("day","udacity"); 
