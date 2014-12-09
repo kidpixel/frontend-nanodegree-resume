@@ -295,7 +295,7 @@ Ok, let's write this:
 */
 
 // FULLY COMMENTED with all my thought processes.
-/*
+
 function areLettersInOrder(small,big) {
 
     var letters = small;
@@ -349,10 +349,11 @@ function areLettersInOrder(small,big) {
         };
     };
 };
-*/
+areLettersInOrder("day","udacity"); 
 
 
 // Slim version... 
+/*
 function areLettersInOrder(small,big) {
 
     var letters = small;
@@ -390,4 +391,26 @@ function areLettersInOrder(small,big) {
         };
     };
 };
+*/
 areLettersInOrder("day","udacity"); 
+
+//Mikes Awesome Solution
+/*
+function areLettersInOrder(small, big) {
+  var smallArr = small.split(''),
+        bigArr = big.split('');
+
+    // Iterate through all characters of big
+    bigArr.forEach(function(char) {
+      // If the current character is the first char in small, shift it off
+      if (char === smallArr[0]) {
+        smallArr.shift();
+      }
+    }
+    // If the length of small is 0, we know things were correctly in order
+    if (smallArr.length === 0) {
+      return true;
+    }
+    return false;
+}
+*/
