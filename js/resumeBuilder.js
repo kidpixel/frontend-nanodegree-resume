@@ -2,7 +2,7 @@ var bio = {
     "name": "Carlo Jonson",
     "role": "Sr. Mgr. Field Communications",
     "number": "443.333.4444",
-    "picture": "http://www.clker.com/cliparts/K/M/W/1/8/u/ninja-hi.png",
+    "picture": "images/ninja-hi.png",
     "welcomeMessage": "Wherever you go, there you are.",
     "skills": [
         "Cooking",
@@ -126,8 +126,16 @@ var education = {
 };
 
 
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);   
 
-if (bio.length !=0) {
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);    
+
+
+
+
+if (bio.skills.length !=0) {
     $("#header").append(HTMLskillsStart);
 
     // trying this loop to iterate through the skills
@@ -137,6 +145,7 @@ if (bio.length !=0) {
         $("#skills").append(formattedSkill);
     };
 };
+
 
 
 function displayWork(){
@@ -173,15 +182,6 @@ function locationizer(work_obj) {
     return locationsArray;
 }
 locationizer(work);
-
-
-//old stuff... i'm keeping 'coz i don't want to see an empty page
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);   
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);    
-//old stuff end. 
 
 
 var inName = function(name) {
@@ -221,3 +221,5 @@ projects.display = function() {
     };
 };
 projects.display();
+
+$("#mapDiv").append(googleMap);
