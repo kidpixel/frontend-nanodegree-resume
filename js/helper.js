@@ -42,6 +42,7 @@ var HTMLprojectDates = "<div class='date-text'>%data%</div>";
 var HTMLprojectDescription = "<p><br>%data%</p>";
 var HTMLprojectImage = "<img src='%data%'>";
 
+var HTMLbmClasses = "<h3 class='eduSubHeader'>'Brick & Mortar' Institutions and Credentials</h3>"; // adding eduSubHeader class to these
 var HTMLschoolStart = "<div class='education-entry'></div>";
 var HTMLschoolName = "<a href='#'>%data%";
 var HTMLschoolDegree = " -- %data%</a>";
@@ -49,11 +50,11 @@ var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
 var HTMLschoolMajor = "<em><br>Major: %data%</em>"
 
-var HTMLonlineClasses = "<h3>Online Classes</h3>";
+var HTMLonlineClasses = "<h3 class='eduSubHeader'>Online Courses</h3>"; // adding eduSubHeader class to these
 var HTMLonlineTitle = "<a href='#'>%data%";
 var HTMLonlineSchool = " - %data%</a>";
 var HTMLonlineDates = "<div class='date-text'>%data%</div>";
-var HTMLonlineURL = "<br><a href='#'>%data%</a>";
+var HTMLonlineURL = "<br><a href='#' class='restyledURL'>%data%</a>"; // re-styling so it doesn't look like a subheader, hope it's ok I'm changing this
 
 var internationalizeButton = "<button>Internationalize</button>";
 var googleMap = "<div id='map'></div>";

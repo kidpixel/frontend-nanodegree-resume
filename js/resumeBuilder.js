@@ -3,6 +3,7 @@ var bio = {
     "role": "Sr. Mgr. Field Communications",
     "number": "443.333.4444",
     "picture": "images/ninja-hi.png",
+    "bioBG": "images/firebulb.jpg",
     "welcomeMessage": "Wherever you go, there you are.",
     "skills": [
         "Cooking",
@@ -102,11 +103,11 @@ var education = {
             "location": "Laurel, MD",
             "degree": [
                 "Computer Programming", 
-                "Database Management"
+                " Database Management" // needed a space "after comma"
             ],
             "majors": [
-                "Computer Programming",
-                "Database Management"
+                "Computer Programming Certification",
+                "Database Management Certification"
             ],
             "dates": 2001,
             "url": "http://www.udacity.com"
@@ -119,7 +120,7 @@ var education = {
                 "Biology",
                 "Computer Science"
             ],
-            "dates": 1999,
+            "dates": "1997-1999",
             "url": "http://www.utsc.utoronto.ca/"
         }
     ]
@@ -140,6 +141,7 @@ for (contact in bio.contacts) {
     var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contacts[contact]);
     formattedContact = formattedContact.replace("%contact%", contact);
     $("#topContacts").append(formattedContact);
+    $("#footerContacts").append(formattedContact);
 }
 
 if (bio.skills.length !=0) {
@@ -229,7 +231,66 @@ projects.display = function() {
 projects.display();
 
 
+// Completing Education Section the same way we were taught with Projects... Encapsulating display function within the parent object, in this: education.
+education.display = function() {
 
+    // Moving this to the "top" because it's more recent!
+    // handle 3rd part - online stuff... i might move this above brick and mortar section
+    $("#education").append(HTMLonlineClasses);
+
+    for (myCourse in education.onlineCourses) {
+
+    $("#education").append(HTMLschoolStart);
+
+    var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[myCourse].title);
+    var formattedSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[myCourse].school);
+    var formattedOnlineHeader  = formattedTitle + formattedSchool;
+    $(".education-entry:last").append(formattedOnlineHeader);
+    
+    var formattedDates = HTMLonlineDates.replace("%data%",education.onlineCourses[myCourse].dates);
+    $(".education-entry:last").append(formattedDates);
+
+    var formattedURL = HTMLonlineURL.replace("%data%",education.onlineCourses[myCourse].url);
+    $(".education-entry:last").append(formattedURL);
+
+    };
+
+    $("#education").append(HTMLbmClasses);
+
+    for (school in education.schools) {
+        // "education" CSS ID already created/defined within empty DIV in html file... start appending code sections from helper.js
+        $("#education").append(HTMLschoolStart);
+        // handle 1st part of an "education entry" - brick and mortar locations
+        var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+        var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+
+        // If i went to the school, but didn't finish with a degree, slice out the " --" before I tack on the closing anchor tag from HTMLschoolDegree.
+        // Why?  it's unslightly to have a trailing "--" next to the University of Toronto header area, and modding the helper.js would mess with a "complete" entry.
+        if (education.schools[school].degree.length === 0) { 
+            formattedDegree = formattedDegree.slice(3); 
+        };
+        var formattedSchoolTopEntry = formattedSchoolName + formattedDegree;
+        console.log(formattedSchoolName);
+        console.log(formattedDegree);
+        console.log(formattedSchoolTopEntry);
+        console.log(education.schools[school].degree.length);
+        $(".education-entry:last").append(formattedSchoolTopEntry);
+
+        // handle 2nd part of an "education entry"
+        var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+        $(".education-entry:last").append(formattedDates);
+
+        var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+        $(".education-entry:last").append(formattedLocation);
+
+        for (major in education.schools[school].majors) {
+            var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
+            $(".education-entry:last").append(formattedMajor);
+        }
+    }
+
+};
+education.display();
 
 
 $("#mapDiv").append(googleMap); 
@@ -238,3 +299,4 @@ $("#mapDiv").append(googleMap);
 // Once the API is back and any adjustments are made to the course instructions, I'll complete the code, but i'll still
 // submit my code MINUS this so I can meet my the deadline and stay on track within Cohort 1 and not get pushed back.
 //
+

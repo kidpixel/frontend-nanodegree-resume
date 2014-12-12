@@ -1,7 +1,9 @@
 *{
     padding:0;
     margin:0;
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; ORIGINAL*/
+    /* font-family: 'Iceland', cursive, sans-serif; */
+    font-family: 'Special Elite', cursive;
     /*border: 1px solid red !important;  /* Oldie but goodie! */
 }
 
@@ -43,12 +45,20 @@ h4 {
   line-height: 17px;
 }
 
+/* repositioning above specific H definitions */
 h2, h3, h4, h5 {
-  padding:10px;
+  padding: 10px, 10px, 10px, 0px;
   padding-left: 5%;
   padding-right: 5%;
 }
 
+#education {
+  padding-bottom: 10px;
+}
+
+.eduSubHeader {
+  padding-bottom: 0px;
+}
 
 .date-text {
   font-style: italic;
@@ -89,6 +99,14 @@ a {
   padding-left: 0;
 }
 
+/* Changint the way the Online Courses URL shows up... 'coz before it looks like the subheader' */
+.restyledURL {
+  font-style: italic;
+  font-size: 12px;
+  margin-top: 0px;
+  padding-bottom: 15px;
+}
+
 #skillsH3 {
   color: #F5AE23;
   display: none;
@@ -118,12 +136,15 @@ a {
 }
 
 .dark-gray {
-  background-color: #4A4A4A;
+  background-color: #4A4A4A; 
 }
 
 /* TODO: Replace with image later */
+/* Instructor's TODO... that was my idea too! */
 #header {
   background-color: #484848;
+  background-image: url("../images/firebulb.jpg");
+  background-repeat: no-repeat;
 }
 
 .flex-box {
@@ -211,6 +232,12 @@ span {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
+  background-image: url("../images/worldmap-darkorange.jpg");
+  background-repeat: no-repeat;
+}
+
+#footerContacts {
+  background-color: black;
 }
 
 @media only screen and (min-width: 750px) {
