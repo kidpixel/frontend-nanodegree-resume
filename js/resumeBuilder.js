@@ -14,7 +14,7 @@ var bio = {
         "Kidding..."
     ],
     "contacts": {
-        "mobile": "443.123.4567",
+        "mobile": "443.333.4444 <i>(REAL)</i>",
         "email": "cj811k@att.com",
         "github": "kidpixel",
         "location": "Atlanta, GA"
@@ -128,12 +128,19 @@ var education = {
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);   
+var formattedPic = HTMLbioPic.replace("%data%", bio.picture);
+var formattedDescription = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 $("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);    
+$("#header").prepend(formattedName);
+$("#header").append(formattedPic);
+$("#header").append(formattedDescription);    
 
-
-
+for (contact in bio.contacts) {
+    var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contacts[contact]);
+    formattedContact = formattedContact.replace("%contact%", contact);
+    $("#topContacts").append(formattedContact);
+}
 
 if (bio.skills.length !=0) {
     $("#header").append(HTMLskillsStart);
@@ -186,12 +193,11 @@ locationizer(work);
 
 var inName = function(name) {
     name = name.trim().split(" ");  // I didn't think of or even know about trim() until the class example.  Inserting it here.
-    // my implementation from Lesson 1 modified since the helper function in helper.js was changed to accept a param.  I like this line!
+    // this is my implementation from Lesson 1 modified since the helper function in helper.js was changed to accept a param.  I like this line!
     name = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase() + " " + name[1].toUpperCase();
     return name;
 };
 $("#main").append(internationalizeButton);
-
 
 projects.display = function() {
 
@@ -222,4 +228,13 @@ projects.display = function() {
 };
 projects.display();
 
-$("#mapDiv").append(googleMap);
+
+
+
+
+$("#mapDiv").append(googleMap); 
+// Per Cameron, keep this line here even though the Google Maps API is broken as of 12/11/14 1:35am Eastern Time.
+// Since I/we can't complete the addListener code now, this'll just get pushed to the side while I finish the rest.
+// Once the API is back and any adjustments are made to the course instructions, I'll complete the code, but i'll still
+// submit my code MINUS this so I can meet my the deadline and stay on track within Cohort 1 and not get pushed back.
+//

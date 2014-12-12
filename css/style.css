@@ -2,6 +2,7 @@
     padding:0;
     margin:0;
     font-family: 'Roboto', sans-serif;
+    /*border: 1px solid red !important;  /* Oldie but goodie! */
 }
 
 
@@ -79,11 +80,13 @@ a {
   display: block;
 }
 
+/* I'm gonna change this a little bit - I don't like that slight indentation on the left */
 .welcome-message {
   font-style: italic;
   font-size: 18px;
   color: #F3F3F3;
   line-height: 28px;
+  padding-left: 0;
 }
 
 #skillsH3 {
@@ -109,7 +112,7 @@ a {
 }
 
 .gray {
-  background-color: #F3F3F3;
+  background-color: #eee; /* changing the F3F3F3 to a different gray */
   padding-bottom: 10px;
   clear:both;
 }
