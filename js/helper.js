@@ -99,7 +99,17 @@ See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
 var map;    // declares a global map variable
-
+// ok some more custom stuff i'm trying
+var mapStyleSettings = [
+  {
+    featureType: 'all',
+      stylers : [
+        {invert_lightness: 'true'},
+        {visibility: 'simplified'},
+        {lightness: '-60'}
+        ]
+  },
+];
 
 /*
 Start here! initializeMap() is called when page is loaded.
@@ -110,6 +120,7 @@ function initializeMap() {
 
   var mapOptions = {
     disableDefaultUI: true
+
   };
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
@@ -184,6 +195,9 @@ function initializeMap() {
     map.fitBounds(bounds);
     // center the map
     map.setCenter(bounds.getCenter());
+
+    //ok trying to insert some map changes here - EEK!
+    map.setOptions ({styles: mapStyleSettings});
   }
 
   /*
