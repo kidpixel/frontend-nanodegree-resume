@@ -1,5 +1,5 @@
 var bio = {
-    "name": "Carlo Jonson",
+    "name": "Carlo Jonson ",
     "role": "Sr. Mgr. Field Communications",
     "number": "443.333.4444",
     "picture": "images/ninja-hi.png",
@@ -9,10 +9,10 @@ var bio = {
         "Cooking",
         "Coding", 
         "Collaboratig",
-        "colluding",
-        "conspiring",
-        "conflagarating",
-        "Kidding..."
+        "\&nbsp\; colluding",
+        "\&nbsp\;  conspiring",
+        "\&nbsp\;  conflagarating",
+        "\&nbsp\;  Kidding..."
     ],
     "contacts": {
         "mobile": "443.333.4444 <i>(REAL)</i>",
@@ -28,7 +28,7 @@ var projects = {
         {
             "title": "Udacity Mug Mockup to Website",
             "dates": "November 2014",
-            "description": "Constructing a pixel-perfect HTML/CSS site from scratch guided by just a mockup image.",
+            "description": "Constructing a pixel-perfect HTML/CSS site from scratch guided by just a mockup image. ",
             "images": [
                 "http://placehold.it/100x50",
                 "http://placehold.it/100x50",
@@ -38,7 +38,7 @@ var projects = {
         {
             "title": "Interactive Resume",
             "dates": "December 2014",
-            "description": "Interactive Resume dynamically created using JavaScript.",
+            "description": "Interactive Resume dynamically created using JavaScript. ",
             "images": [
                 "http://placehold.it/100x50",
                 "http://placehold.it/100x50",

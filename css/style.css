@@ -2,12 +2,10 @@
     padding:0;
     margin:0;
     /* font-family: 'Roboto', sans-serif; ORIGINAL*/
-    /* font-family: 'Iceland', cursive, sans-serif; */
     font-family: 'Special Elite', cursive;
     /*border: 1px solid red !important;  /* Oldie but goodie! */
+    /*background: #111; Testing to see what happens.. not good if applied here! */
 }
-
-
 
 .education-entry, .work-entry, .project-entry {
   padding-left: 5%;
@@ -58,12 +56,13 @@ h2, h3, h4, h5 {
 
 .eduSubHeader {
   padding-bottom: 0px;
+  color: #444;
 }
 
 .date-text {
-  font-style: italic;
+    color: #999999;font-style: italic;
   font-size: 14px;
-  color: #999999;
+
   line-height: 16px;
   float: left;
 }
@@ -84,7 +83,7 @@ p {
 }
 
 a {
-  color: #1199C3;
+  color: #f39c0c;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -121,12 +120,17 @@ a {
 }
 
 .orange-text {
-  color: #F5AE23;
+  /*color: #F5AE23; */
+  color: #f39c0c;
 }
 
 .white-text {
   font-weight: bold;
   color: #FFFFFF;
+}
+
+.blendy-gray-text {
+  color: #666;
 }
 
 .gray {
@@ -135,14 +139,18 @@ a {
   clear:both;
 }
 
+.medium-gray {
+  background-color: #222; 
+}
+
 .dark-gray {
-  background-color: #4A4A4A; 
+  background-color: #111; 
 }
 
 /* TODO: Replace with image later */
 /* Instructor's TODO... that was my idea too! */
 #header {
-  background-color: #484848;
+  background-color: #0f0f0f;
   background-image: url("../images/firebulb.jpg");
   background-repeat: no-repeat;
 }
