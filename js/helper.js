@@ -44,7 +44,7 @@ var HTMLschoolName = "<a href='#'>%data%";
 var HTMLschoolDegree = " -- %data%</a>";
 var HTMLschoolDates = "<div class='date-text'>%data%</div>";
 var HTMLschoolLocation = "<div class='location-text'>%data%</div>";
-var HTMLschoolMajor = "<em><br><span class='blendy-gray-text'>Major: %data%</span></em>"
+var HTMLschoolMajor = "<em><br><span class='blendy-gray-text'>Major: %data%</span></em>";
 
 var HTMLonlineClasses = "<h3 class='eduSubHeader'>Online Courses</h3>"; // adding eduSubHeader class to these
 var HTMLonlineTitle = "<a href='#'>%data%";
@@ -66,7 +66,7 @@ $(document).ready(function() {
     var iName = inName(bio.name) || function(){};
     $('#name').html(iName);  
   });
-})
+});
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -85,7 +85,7 @@ function logClicks(x,y) {
 
 $(document).click(function(loc) {
   console.log(loc);
-	logClicks(loc.pageX,loc.pageY);
+  logClicks(loc.pageX,loc.pageY);
 });
 
 
@@ -203,7 +203,7 @@ function initializeMap() {
   */
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      createMapMarker(results[0])
+      createMapMarker(results[0]);
     }
   }
 
@@ -223,7 +223,7 @@ function initializeMap() {
       // the search request object
       var request = {
         query: locations[place]
-      }
+      };
 
       // Actually searches the Google Maps API for location data and runs the callback 
       // function with the search results after each search.
