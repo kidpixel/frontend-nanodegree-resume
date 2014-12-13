@@ -70,7 +70,6 @@ $(document).ready(function() {
   });
 })
 
-
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
 */
@@ -100,6 +99,7 @@ https://developers.google.com/maps/documentation/javascript/reference
 */
 var map;    // declares a global map variable
 // ok some more custom stuff i'm trying
+// This takes the map colors and inverts lightness, making it a "night mode" map.  I make it darker even more 'coz everything else is dark.
 var mapStyleSettings = [
   {
     featureType: 'all',

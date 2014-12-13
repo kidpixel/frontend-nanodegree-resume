@@ -54,6 +54,19 @@ h2, h3, h4, h5 {
   padding-bottom: 10px;
 }
 
+#main {
+  background: url(../images/tallspacer.png) bottom left fixed;
+  /* 
+    From the way I've come to understand the instructors' design and how the #main DIV behaves when resizing, the only part of the screen that
+    will STILL show (the code gods know I tried other ways) if the page is resized starting below 1024px is a sliver of white at the bottom.
+    Upon further inspection in DevTools, it belongs TO #main, but is pushed into view becasue of #letsConnect's top padding.  I tried changing
+    the background color of #letsConnect, but it didn't work.  It's not very elegant, but my solution to show perfectly dark backgrounds at ANY
+    resolution was to insert the line above and call it a day.  Additionally, I opted to leave the "Internationalize" code and button, and it
+    always had an accompanying white background (also from #main) no matter what i did to other sections.  I like this white strip HERE, so i 
+    built in a roughly 30 pixel space at the bottom to accomodate it across the screen.
+  */
+}
+
 .eduSubHeader {
   padding-bottom: 0px;
   color: #444;
@@ -237,11 +250,12 @@ span {
 }
 
 #mapDiv {
-  height: 400px;
+  height: 350px;
   width: 100%;
   padding-bottom: 5%;
   background-image: url("../images/worldmap-darkorange.jpg");
   background-repeat: no-repeat;
+
 }
 
 #footerContacts {

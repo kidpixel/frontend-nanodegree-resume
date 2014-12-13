@@ -181,26 +181,47 @@ function displayWork(){
 };
 displayWork();
 
+/*
+work.locationizer = function(work_obj) {
+    var locationsArray = [];
+    for (var job in work_obj.jobs){
+        locationsArray.push(work_obj.jobs[job].location);
+    }
+    // console.log(locationsArray); // For testing and debugging. 
+    return locationsArray;
+};
+locationizer(work);
+*/
+
 
 function locationizer(work_obj) {
     var locationsArray = [];
     for (var job in work_obj.jobs){
         locationsArray.push(work_obj.jobs[job].location);
     }
-	console.log(locationsArray);
+	// console.log(locationsArray); // For testing and debugging. 
     return locationsArray;
 }
 locationizer(work);
 
 
-var inName = function(name) {
-    name = name.trim().split(" ");  // I didn't think of or even know about trim() until the class example.  Inserting it here.
-    // this is my implementation from Lesson 1 modified since the helper function in helper.js was changed to accept a param.  I like this line!
-    name = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase() + " " + name[1].toUpperCase();
-    return name;
-};
-$("#main").append(internationalizeButton);
+// Keeping this because I like its functionality. See my note in CSS on how i kept some incidental formatting around this.
+// Also, I had to remove the "var" in "var inName = ..." below from the Lesson because once i encapsulated it into the function per the rubric, 
+// the scope changed. (Thanks "Function and Block-level Scope" sections!)  
+// Encapsulated to BIO
+bio.display = function() {
+        inName = function(name) {
+        name = name.trim().split(" ");  // I didn't think of or even know about trim() until the class example.  Inserting it here.
+        // this is my implementation from Lesson 1 modified since the helper function in helper.js was changed to accept a param.  I like this line!
+        name = name[0][0].toUpperCase() + name[0].slice(1).toLowerCase() + " " + name[1].toUpperCase();
+        return name;
+    };
+    $("#main").append(internationalizeButton);
+}
+bio.display();
 
+
+// Encapsulated to PROJECTS
 projects.display = function() {
 
     for (project in projects.projects) {
@@ -208,12 +229,13 @@ projects.display = function() {
     $("#projects").append(HTMLprojectStart);
 
         var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-        console.log(formattedProjectTitle);
-        console.log(projects.projects[project].title);
+        //console.log(formattedProjectTitle);
+        //console.log(projects.projects[project].title);
         var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-        console.log(projects.projects[project].dates);
+        //console.log(projects.projects[project].dates);
         var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-        console.log(projects.projects[project].description);
+        //console.log(projects.projects[project].description);
+        // Above console log call EXTREMELY useful for testing the loop, formatting, and figuring out errors due to THREE typed words "project" in a row over and over.
 
         $(".project-entry:last").append(formattedProjectTitle);
         $(".project-entry:last").append(formattedProjectDates);
@@ -223,7 +245,7 @@ projects.display = function() {
         for (image in projects.projects[project].images) {
 
             var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-            console.log(projects.projects[project].images[image]);
+            // console.log(projects.projects[project].images[image]);  // shows image URLs for my projects
             $(".project-entry:last").append(formattedProjectImage);
         };
     };
@@ -232,6 +254,7 @@ projects.display();
 
 
 // Completing Education Section the same way we were taught with Projects... Encapsulating display function within the parent object, in this: education.
+// Encapsulated to EDUCATION
 education.display = function() {
 
     // Moving this to the "top" because it's more recent!
