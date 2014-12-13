@@ -266,7 +266,8 @@ education.display = function() {
     var formattedDates = HTMLonlineDates.replace("%data%",education.onlineCourses[myCourse].dates);
     $(".education-entry:last").append(formattedDates);
 
-    var formattedURL = HTMLonlineURL.replace("%data%",education.onlineCourses[myCourse].url);
+    var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[myCourse].url);
+    formattedURL = formattedURL.replace("%data2%", education.onlineCourses[myCourse].url);
     $(".education-entry:last").append(formattedURL);
 
     };

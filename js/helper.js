@@ -50,7 +50,9 @@ var HTMLonlineClasses = "<h3 class='eduSubHeader'>Online Courses</h3>"; // addin
 var HTMLonlineTitle = "<a href='#'>%data%";
 var HTMLonlineSchool = " - %data%</a>";
 var HTMLonlineDates = "<div class='date-text'>%data%</div>";
-var HTMLonlineURL = "<br><a href='#' class='restyledURL'>%data%</a>"; // re-styling so it doesn't look like a subheader, hope it's ok I'm changing this
+var HTMLonlineURL = "<br><a href='%data2%' target='_blank' class='restyledURL'>%data%</a>"; // re-styling so it doesn't look like a subheader, hope it's ok I'm changing this
+// Also changing so link actually does GO to the page in a new tab and not just in the current window. Should be easy... 
+// I think a regexp would do the trick to replace both, but I can't get it working.  So... I'm gonna do it another way.
 
 var internationalizeButton = "<button>Internationalize</button>";
 var googleMap = "<div id='map'></div>";
