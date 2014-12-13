@@ -5,7 +5,7 @@ var bio = {
     "picture": "images/ninja-hi.png",
     "bioBG": "images/firebulb.jpg",
     "welcomeMessage": "Wherever you go, there you are.",
-    "welcomeMessage2": ":(){ :|:& };:"
+    "welcomeMessage2": "\:\(\)\{\ \:\|\:\&\ \}\;\:",
     "skills": [
         "Cooking",
         "Coding", 
