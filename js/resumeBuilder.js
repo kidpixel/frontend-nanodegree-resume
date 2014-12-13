@@ -127,37 +127,39 @@ var education = {
 };
 
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);   
-var formattedPic = HTMLbioPic.replace("%data%", bio.picture);
-var formattedDescription = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+bio.display = function() {
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedPic);
-$("#header").append(formattedDescription);    
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);   
+    var formattedPic = HTMLbioPic.replace("%data%", bio.picture);
+    var formattedDescription = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-for (contact in bio.contacts) {
-    var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contacts[contact]);
-    formattedContact = formattedContact.replace("%contact%", contact);
-    $("#topContacts").append(formattedContact);
-    $("#footerContacts").append(formattedContact);
-}
+    $("#header").prepend(formattedRole);
+    $("#header").prepend(formattedName);
+    $("#header").append(formattedPic);
+    $("#header").append(formattedDescription);    
 
-if (bio.skills.length !=0) {
-    $("#header").append(HTMLskillsStart);
+    for (contact in bio.contacts) {
+        var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contacts[contact]);
+        formattedContact = formattedContact.replace("%contact%", contact);
+        $("#topContacts").append(formattedContact);
+        $("#footerContacts").append(formattedContact);
+    }
 
-    // trying this loop to iterate through the skills
-    for (var skillIndex = 0; skillIndex < bio.skills.length; skillIndex++) {
+    if (bio.skills.length !=0) {
+        $("#header").append(HTMLskillsStart);
 
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[skillIndex]);
-        $("#skills").append(formattedSkill);
+        // trying this loop to iterate through the skills
+        for (var skillIndex = 0; skillIndex < bio.skills.length; skillIndex++) {
+
+            var formattedSkill = HTMLskills.replace("%data%", bio.skills[skillIndex]);
+            $("#skills").append(formattedSkill);
+        };
     };
 };
+bio.display();
 
-
-
-function displayWork(){
+work.displayWork = function() {
 
     for (job in work.jobs) {
 
@@ -178,31 +180,20 @@ function displayWork(){
         $(".work-entry:last").append(formattedLocation);
         $(".work-entry:last").append(formattedDescription);
     };
-};
-displayWork();
+}
+work.displayWork();
 
-/*
+
+// Encapsulated to WORK
 work.locationizer = function(work_obj) {
     var locationsArray = [];
     for (var job in work_obj.jobs){
         locationsArray.push(work_obj.jobs[job].location);
     }
-    // console.log(locationsArray); // For testing and debugging. 
+    console.log(locationsArray); // For testing and debugging. 
     return locationsArray;
 };
-locationizer(work);
-*/
-
-
-function locationizer(work_obj) {
-    var locationsArray = [];
-    for (var job in work_obj.jobs){
-        locationsArray.push(work_obj.jobs[job].location);
-    }
-	// console.log(locationsArray); // For testing and debugging. 
-    return locationsArray;
-}
-locationizer(work);
+work.locationizer(work);
 
 
 // Keeping this because I like its functionality. See my note in CSS on how i kept some incidental formatting around this.
@@ -321,5 +312,4 @@ $("#mapDiv").append(googleMap);
 // Since I/we can't complete the addListener code now, this'll just get pushed to the side while I finish the rest.
 // Once the API is back and any adjustments are made to the course instructions, I'll complete the code, but i'll still
 // submit my code MINUS this so I can meet my the deadline and stay on track within Cohort 1 and not get pushed back.
-//
-
+// "If you're submitting your resume, keep the line that .appends() the map in resumeBuilder.js"
