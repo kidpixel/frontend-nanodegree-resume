@@ -1,11 +1,11 @@
 var bio = {
     "name": "Carlo Jonson ",
-    "role": "Sr. Mgr. Field Communications",
+    "role": "// Sr. Mgr. Field Communications // Code Ninja",
     "number": "443.333.4444",
     "picture": "images/ninja-hi.png",
     "bioBG": "images/firebulb.jpg",
     "welcomeMessage": "Wherever you go, there you are.",
-    "welcomeMessage2": "\:\(\)\{\ \:\|\:\&\ \}\;\:",
+    "welcomeMessage2": "You know what? \:\(\)\{\ \:\|\:\&\ \}\;\: you!",
     "skills": [
         "Cooking",
         "Coding", 
