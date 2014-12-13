@@ -5,14 +5,15 @@ var bio = {
     "picture": "images/ninja-hi.png",
     "bioBG": "images/firebulb.jpg",
     "welcomeMessage": "Wherever you go, there you are.",
+    "welcomeMessage2": ":(){ :|:& };:"
     "skills": [
         "Cooking",
         "Coding", 
         "Collaboratig",
         "\&nbsp\; colluding",
-        "\&nbsp\;  conspiring",
-        "\&nbsp\;  conflagarating",
-        "\&nbsp\;  Kidding..."
+        "\&nbsp\; conspiring",
+        "\&nbsp\; conflagarating",
+        "\&nbsp\; Kidding..."
     ],
     "contacts": {
         "mobile": "443.333.4444 <i>(REAL)</i>",
@@ -22,27 +23,26 @@ var bio = {
     }
 };
 
-
 var projects = {
     "projects": [
-        {
-            "title": "Udacity Mug Mockup to Website",
-            "dates": "November 2014",
-            "description": "Constructing a pixel-perfect HTML/CSS site from scratch guided by just a mockup image. ",
-            "images": [
-                "http://placehold.it/100x50",
-                "http://placehold.it/100x50",
-                "http://placehold.it/100x50"
-            ]
-        },
         {
             "title": "Interactive Resume",
             "dates": "December 2014",
             "description": "Interactive Resume dynamically created using JavaScript. ",
             "images": [
-                "http://placehold.it/100x50",
-                "http://placehold.it/100x50",
-                "http://placehold.it/100x50"
+                "images/InteractiveResume1.jpg",
+                "images/InteractiveResume2.jpg",
+                "images/InteractiveResume3.jpg"  
+            ]
+        },
+        {
+            "title": "Udacity Mug Mockup to Website",
+            "dates": "November 2014",
+            "description": "Constructing a pixel-perfect HTML/CSS site from scratch guided by just a mockup image. ",
+            "images": [
+                "images/mug1.jpg",
+                "images/mug2.jpg",
+                "images/mug3.jpg"
             ]
         }
     ] 
@@ -109,7 +109,7 @@ var education = {
                 "Computer Programming Certification",
                 "Database Management Certification"
             ],
-            "dates": 2001,
+            "dates": "2001",
             "url": "http://www.udacity.com"
         },
         {
@@ -127,6 +127,7 @@ var education = {
 };
 
 
+// Encapsulated to BIO
 bio.display = function() {
 
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -156,9 +157,13 @@ bio.display = function() {
             $("#skills").append(formattedSkill);
         };
     };
+
+    //testing
+    $("#header").append(bio.welcomeMessage2);
 };
 
 
+// Encapsulated to WORK
 work.displayWork = function() {
 
     for (job in work.jobs) {
@@ -180,7 +185,7 @@ work.displayWork = function() {
         $(".work-entry:last").append(formattedLocation);
         $(".work-entry:last").append(formattedDescription);
     };
-}
+};
 
 
 // Encapsulated to WORK
@@ -189,7 +194,7 @@ work.locationizer = function(work_obj) {
     for (var job in work_obj.jobs){
         locationsArray.push(work_obj.jobs[job].location);
     }
-    console.log(locationsArray); // For testing and debugging. 
+    // console.log(locationsArray); // For testing and debugging. 
     return locationsArray;
 };
 
@@ -197,6 +202,7 @@ work.locationizer = function(work_obj) {
 // Keeping this because I like its functionality. See my note in CSS on how i kept some incidental formatting around this.
 // Also, I had to remove the "var" in "var inName = ..." below from the Lesson because once i encapsulated it into the function per the rubric, 
 // the scope changed. (Thanks "Function and Block-level Scope" sections!)  
+//
 // Encapsulated to BIO
 bio.internationalize = function() {
         inName = function(name) {
@@ -206,7 +212,7 @@ bio.internationalize = function() {
         return name;
     };
     $("#main").append(internationalizeButton);
-}
+};
 
 
 // Encapsulated to PROJECTS
@@ -280,10 +286,11 @@ education.display = function() {
             formattedDegree = formattedDegree.slice(3); 
         };
         var formattedSchoolTopEntry = formattedSchoolName + formattedDegree;
-        console.log(formattedSchoolName);
-        console.log(formattedDegree);
-        console.log(formattedSchoolTopEntry);
-        console.log(education.schools[school].degree.length);
+        // More testing for loop iterations
+        // console.log(formattedSchoolName);
+        // console.log(formattedDegree);
+        // console.log(formattedSchoolTopEntry);
+        // console.log(education.schools[school].degree.length);
         $(".education-entry:last").append(formattedSchoolTopEntry);
 
         // handle 2nd part of an "education entry"
@@ -296,9 +303,8 @@ education.display = function() {
         for (major in education.schools[school].majors) {
             var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
             $(".education-entry:last").append(formattedMajor);
-        }
-    }
-
+        };
+    };
 };
 
 
@@ -308,7 +314,6 @@ work.locationizer(work);
 bio.internationalize();
 projects.display();
 education.display();
-
 
 $("#mapDiv").append(googleMap); 
 // Per Cameron, keep this line here even though the Google Maps API is broken as of 12/11/14 1:35am Eastern Time.
