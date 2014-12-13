@@ -157,7 +157,7 @@ bio.display = function() {
         };
     };
 };
-bio.display();
+
 
 work.displayWork = function() {
 
@@ -181,7 +181,6 @@ work.displayWork = function() {
         $(".work-entry:last").append(formattedDescription);
     };
 }
-work.displayWork();
 
 
 // Encapsulated to WORK
@@ -193,14 +192,13 @@ work.locationizer = function(work_obj) {
     console.log(locationsArray); // For testing and debugging. 
     return locationsArray;
 };
-work.locationizer(work);
 
 
 // Keeping this because I like its functionality. See my note in CSS on how i kept some incidental formatting around this.
 // Also, I had to remove the "var" in "var inName = ..." below from the Lesson because once i encapsulated it into the function per the rubric, 
 // the scope changed. (Thanks "Function and Block-level Scope" sections!)  
 // Encapsulated to BIO
-bio.display = function() {
+bio.internationalize = function() {
         inName = function(name) {
         name = name.trim().split(" ");  // I didn't think of or even know about trim() until the class example.  Inserting it here.
         // this is my implementation from Lesson 1 modified since the helper function in helper.js was changed to accept a param.  I like this line!
@@ -209,7 +207,6 @@ bio.display = function() {
     };
     $("#main").append(internationalizeButton);
 }
-bio.display();
 
 
 // Encapsulated to PROJECTS
@@ -241,7 +238,6 @@ projects.display = function() {
         };
     };
 };
-projects.display();
 
 
 // Completing Education Section the same way we were taught with Projects... Encapsulating display function within the parent object, in this: education.
@@ -304,6 +300,13 @@ education.display = function() {
     }
 
 };
+
+
+bio.display();
+work.displayWork();
+work.locationizer(work);
+bio.internationalize();
+projects.display();
 education.display();
 
 
