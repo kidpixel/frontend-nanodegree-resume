@@ -9,10 +9,10 @@ var bio = {
     "skills": [
         "Cooking",
         "Coding", 
-        "Collaboratig",
+        "Collaborating",
         "\&nbsp\; colluding",
         "\&nbsp\; conspiring",
-        "\&nbsp\; conflagarating",
+        "\&nbsp\; conflagrating",
         "\&nbsp\; Kidding..."
     ],
     "contacts": {
