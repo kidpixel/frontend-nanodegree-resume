@@ -102,12 +102,12 @@ var education = {
             "name": "Computer Learning Center (CLC)",
             "location": "Laurel, MD",
             "degree": [
-                "Computer Programming", 
-                " Database Management" // needed a space "after comma"
+                "Computer Programming Certificate", 
+                " Database Management Certificate" // needed a space "after comma"
             ],
             "majors": [
-                "Computer Programming Certification",
-                "Database Management Certification"
+                "Computer Programming",
+                "Database Management"
             ],
             "dates": "2001",
             "url": "http://www.udacity.com"
@@ -322,3 +322,24 @@ $("#mapDiv").append(googleMap);
 // Once the API is back and any adjustments are made to the course instructions, I'll complete the code, but i'll still
 // submit my code MINUS this so I can meet my the deadline and stay on track within Cohort 1 and not get pushed back.
 // "If you're submitting your resume, keep the line that .appends() the map in resumeBuilder.js"
+
+
+// Dallas' helper code.
+// Refactor the carlike function in a way
+// that allows you to use the method calling 
+// syntax with "dot access" as we do below.
+var carlike = function(loc) {
+    this.loc = loc;
+};
+carlike.prototype.move = function() {
+    this.loc++;
+    console.log("external hello " + this.loc);
+};
+
+
+/////
+// Here we want to call move with "dot access"
+var amy = new carlike(1);
+amy.move();
+var ben = new carlike(9);
+ben.move();
