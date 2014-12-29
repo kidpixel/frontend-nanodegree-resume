@@ -102,12 +102,12 @@ var education = {
             "name": "Computer Learning Center (CLC)",
             "location": "Laurel, MD",
             "degree": [
-                "Computer Programming", 
-                " Database Management" // needed a space "after comma"
+                "Computer Programming Certification", 
+                " Database Management Certification" // needed a space "after comma"
             ],
             "majors": [
-                "Computer Programming Certification",
-                "Database Management Certification"
+                "Computer Programming ",
+                "Database Management "
             ],
             "dates": "2001",
             "url": "http://www.udacity.com"
